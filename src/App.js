@@ -7,8 +7,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Test from './components/test'
 import Header from './components/header/header'
+import Nav from './components/nav/nav'
 
 function App() {
 
@@ -16,6 +16,8 @@ function App() {
     <ContextProvider>
       <Theme>
         <Router>
+          <Header />
+          <Nav />
           <Switch>
             <Route path="/about">
               <p>About</p>
