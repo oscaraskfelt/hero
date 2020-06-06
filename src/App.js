@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Header from './components/header/header'
 import Nav from './components/nav/nav'
+import Board from './components/board/board'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             </Route>
             <Route path="/">
               <p>Home</p>
+              <Board />
             </Route>
           </Switch>
         </Router>
