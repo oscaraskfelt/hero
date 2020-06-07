@@ -10,6 +10,7 @@ width: 30%;
 min-width: 200px;
 max-width: 300px;
 height: 200px;
+cursor: pointer;
 `
 
 export const CardFront = styled.div`

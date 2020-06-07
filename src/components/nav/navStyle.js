@@ -25,6 +25,6 @@ a {
 }
 
 a.active{
-    color: ${props => props.theme.colors.activeNav};
+    color: ${props => props.theme.colors.onyx};
 }
 `
