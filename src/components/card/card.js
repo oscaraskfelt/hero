@@ -1,11 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Card, CardFront, CardBack} from './cardStyle'
+import counterInterface from '../../context/counterInterface'
+import {Context} from '../../context/context'
 
 export default (props) => {
+    const [state] = useContext(Context) 
     const [active, setActive] = useState(false)
+    const {incrementActiveCards, decrementActiveCards} = counterInterface();
 
     const onClickHandler = () => {
-        setActive(!active)
+            if(state.activeCards <= 1 && !active){
+                if(!active){
+                    incrementActiveCards()
+                    setActive(true)
+                }
+            }
+            else{
+                if(active){
+                    setActive(false)
+                    decrementActiveCards()
+                }
+            }
     }
 
     return (
@@ -15,7 +30,7 @@ export default (props) => {
             </CardFront>
             <CardBack active={active}>
                 <h2>Back</h2>
-                <p>backtext</p>
+                <p>{props.item}</p>
             </CardBack>
         </Card>
     )
