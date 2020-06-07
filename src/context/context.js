@@ -1,9 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 
-const Context = React.createContext([{}, () => {}]);
+const Context = React.createContext([{}, () => {}])
 
 const ContextProvider = (props) => {
-    const [state, setState] = useState({activeCards: 0, cardId: null});
+    const [state, setState] = useState({
+        activeCards: 0, 
+        cards: {
+            hand: [], completed: [], active:[]
+            }
+        })
+
     return (
         <Context.Provider value={[state, setState]}>
             {props.children}
@@ -11,4 +17,4 @@ const ContextProvider = (props) => {
     );
 }
 
-export { Context, ContextProvider };
+export { Context, ContextProvider }
