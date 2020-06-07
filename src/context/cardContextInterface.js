@@ -46,7 +46,7 @@ export default () => {
                 cards: {
                     ...state.cards,
                     active: [],
-                    completed: [firstCard.nr]
+                    completed: [...state.cards.completed, firstCard.nr]
                 } 
             }))            
         }
