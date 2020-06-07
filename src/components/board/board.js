@@ -4,7 +4,7 @@ import { Board } from './boardStyle'
 
 export default () => {
  
-    const cards = [{id: 1}, {id: 2}, {id: 3}]
+    const cards = [{nr: 1}, {nr: 2}, {nr: 3}]
     cards.push(...cards)
     for(let i = cards.length - 1; i > 0; i--){
         const j = Math.floor(Math.random() * i)
@@ -17,7 +17,7 @@ export default () => {
         <Board>
             {cards.map((item, i) => {
                 return(
-                    <Card item={item.id} key={i}/>
+                    <Card nr={item.nr} id={i} key={i}/>
                 )}
             )}
         </Board>

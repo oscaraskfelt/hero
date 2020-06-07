@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+import { useContext } from 'react'
 import {Context} from './context'
 
 export default () => {
-    const [state, setState] = useContext(Context);
+    const [state, setState] = useContext(Context)
     
       const incrementActiveCards = () => {
-          setState(state => ({ ...state, activeCards: state.activeCards + 1 }));
+          setState(state => ({ ...state, activeCards: state.activeCards + 1 }))
         }
         
         const decrementActiveCards = () => {
@@ -16,4 +16,4 @@ export default () => {
       return {
         incrementActiveCards, decrementActiveCards
       }
-  };
+  }
