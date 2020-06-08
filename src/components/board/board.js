@@ -24,9 +24,9 @@ export default () => {
     }, [])
 
     const generateCards = () =>{
-        var number = [];
+        let number = [];
         while(number.length < 4){
-            let r = Math.floor(Math.random() * Math.floor(30))
+            let r = Math.floor(Math.random() * Math.floor(29))
             if(number.indexOf(r) === -1){
                 number.push(r)            
             }
