@@ -66,4 +66,9 @@ animation: ${props => props.matched ? 'jump .4s linear alternate 1' : 'none'};
   40%  {transform: translate3d(0,0%,0) scale3d(.93,.93,.93);}
   100% {transform: translate3d(0,0%,0) scale3d(1,1,1);}
 }
+
+svg {
+    width: 60%;
+    opacity: ${props => props.active ? props.matched ? '0.7' : '1' : '0'};
+}
 `

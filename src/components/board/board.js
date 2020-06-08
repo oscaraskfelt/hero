@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import Card from '../card/card'
 import { Board } from './boardStyle'
 import cardContextInterface from '../../context/cardContextInterface'
@@ -10,8 +10,7 @@ export default () => {
     const {hand} = context.cards
     
     useEffect(()=>{
-        const cards = [{nr: 1, active: false}, {nr: 2, active: false}, {nr: 3, active: false},{nr: 1, active: false}, {nr: 2, active: false}, {nr: 3, active: false}]
-        //cards.push(...cards)
+        const cards = generateCards()
         
         //Fisher-Yates shuffle
         for(let i = cards.length - 1; i > 0; i--){
@@ -23,6 +22,22 @@ export default () => {
 
         setCards(cards)
     }, [])
+
+    const generateCards = () =>{
+        var number = [];
+        while(number.length < 4){
+            let r = Math.floor(Math.random() * Math.floor(30))
+            if(number.indexOf(r) === -1){
+                number.push(r)            
+            }
+        }
+        
+        let cards = [...Array(4)].map((item, i) => {
+            return {nr: number[i], active: false}
+        })
+        let cardsDuplicate = JSON.parse(JSON.stringify( cards ))
+        return cards.concat(cardsDuplicate)
+    }
 
     return (
         <Board>
