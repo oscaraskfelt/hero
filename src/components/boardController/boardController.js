@@ -14,6 +14,7 @@ export default () => {
     return (
         <BoardController>
             <ButtonContainer>
+                <span>spelplan: </span>
                 <Button value={"3"} onClick={onClickHandler}>
                     3
                 </Button>
@@ -25,7 +26,7 @@ export default () => {
                 </Button>
             </ButtonContainer>
             <StatDiv>
-                Rounds won: {state.board.playedRounds}
+                Vinster: {state.board.playedRounds}
             </StatDiv>
         </BoardController>
     )

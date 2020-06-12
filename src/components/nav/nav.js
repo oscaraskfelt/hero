@@ -7,10 +7,10 @@ export default () => {
         <Nav>
             <Ul>
                 <Li>
-                    <NavLink exact to="/" activeClassName="active">Home</NavLink>
+                    <NavLink exact to="/" activeClassName="active">Hem</NavLink>
                 </Li>
                 <Li>
-                    <NavLink exact to="/about" activeClassName="active">About</NavLink>
+                    <NavLink exact to="/about" activeClassName="active">Om</NavLink>
                 </Li>
             </Ul>
         </Nav>
