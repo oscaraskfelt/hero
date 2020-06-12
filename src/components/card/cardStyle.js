@@ -11,6 +11,7 @@ min-width: 200px;
 max-width: 300px;
 height: 200px;
 cursor: pointer;
+overflow:hidden;
 `
 
 export const CardFront = styled.div`
@@ -28,8 +29,17 @@ transition-property: transform, opacity;
 transform: ${props => props.active ? 'rotateX(180deg)' : 'rotateX(0deg)'};
 opacity: ${props => props.active ? '0' : '1'};
 
+&:after {
+content: ' ';
+position: absolute;
+min-height: 100%;
+min-width: 100%;
+opacity: 0.2;
+background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ3qVeI5k4saaKYR14rB3HrZtBZ4gL2eDq89RgUooGKphlma-6n&usqp=CAU');
 background-size: cover !important;
 background-position: center !important;
+overflow:hidden;
+}
 
 
 h1 {

@@ -27,7 +27,6 @@ export default ({id, nr}) => {
     return (
         <Card onClick={onClickHandler} id={id}>
             <CardFront active={active}>
-                <h1>Flip</h1>
             </CardFront>
             <CardBack active={active} matched={matched}>
                 <Icon />
