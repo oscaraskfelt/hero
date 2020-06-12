@@ -10,6 +10,7 @@ import {
 import Header from './components/header/header'
 import Nav from './components/nav/nav'
 import Board from './components/board/board'
+import BoardController from './components/boardController/boardController'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
               <p>About</p>
             </Route>
             <Route path="/">
+              <BoardController/> 
               <Board />
             </Route>
           </Switch>

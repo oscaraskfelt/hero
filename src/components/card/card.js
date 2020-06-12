@@ -28,7 +28,6 @@ export default (props) => {
         <Card onClick={onClickHandler} id={props.id}>
             <CardFront active={active}>
                 <h1>Flip</h1>
-                <p>{props.nr}</p>
             </CardFront>
             <CardBack active={active} matched={matched}>
                 <Icon />

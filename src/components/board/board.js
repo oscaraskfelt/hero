@@ -6,11 +6,12 @@ import { Context } from '../../context/context'
 
 export default () => {
     const {setCards} = cardContextInterface();
-    const [context] = useContext(Context)
-    const {hand} = context.cards
+    const [state] = useContext(Context)
+    const {hand} = state.cards
+    const {numberOfCards, playedRounds} = state.board
     
     useEffect(()=>{
-        const cards = generateCards()
+        const cards = generateCards(numberOfCards)
         
         //Fisher-Yates shuffle
         for(let i = cards.length - 1; i > 0; i--){
@@ -21,18 +22,18 @@ export default () => {
         }
 
         setCards(cards)
-    }, [])
+    }, [numberOfCards, playedRounds])
 
-    const generateCards = () =>{
+    const generateCards = (nr) =>{
         let number = [];
-        while(number.length < 4){
+        while(number.length < nr){
             let r = Math.floor(Math.random() * Math.floor(29))
             if(number.indexOf(r) === -1){
                 number.push(r)            
             }
         }
         
-        let cards = [...Array(4)].map((item, i) => {
+        let cards = [...Array(nr)].map((item, i) => {
             return {nr: number[i], active: false}
         })
         let cardsDuplicate = JSON.parse(JSON.stringify( cards ))

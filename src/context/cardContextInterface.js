@@ -35,6 +35,17 @@ export default () => {
             }))
     }
 
+    const setAmountOfCards = (cards) => {
+        //set amount of cards on the board
+        setState(state => ({
+            ...state, 
+            board: {
+                ...state.board, 
+                numberOfCards : cards
+            }
+        }))
+    }
+
     const checkMatch = () => {  
         //checks if its a match or not...      
         const firstCard = hand[active[0]]
@@ -48,7 +59,25 @@ export default () => {
                     active: [],
                     completed: [...state.cards.completed, firstCard.nr]
                 } 
-            }))            
+            }))
+            if(state.cards.completed.length + 1 === state.board.numberOfCards){
+                setState(state => ({
+                    ...state,
+                    cards : {...state.cards, completed: []},
+                }))                
+                //setTimeoute to delay a new set of cards
+                setTimeout(() => {
+                    let updatedRounds = state.board.playedRounds + 1
+                    setState(state => ({
+                        ...state,
+                        board: {
+                            ...state.board, 
+                            playedRounds : updatedRounds
+                        }
+                    }))                
+                }, 2000);
+                
+            }
         }
         else {
             //setTimeoute to delay card reset
@@ -67,13 +96,16 @@ export default () => {
                         } 
                     }))
             }, 1000);
-        }        
+        }
     }
+
+    
 
     return {
         setCards, 
         checkMatch, 
         incrementActiveCards, 
-        setActive
+        setActive,
+        setAmountOfCards
         }
   }
