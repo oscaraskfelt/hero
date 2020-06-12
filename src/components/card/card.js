@@ -4,17 +4,17 @@ import cardContextInterface from '../../context/cardContextInterface'
 import {Context} from '../../context/context'
 import { getSvg } from '../../icons/all'
 
-export default (props) => {
+export default ({id, nr}) => {
     const [state] = useContext(Context) 
     const {incrementActiveCards, setActive, checkMatch} = cardContextInterface();
-    const {active} = state.cards.hand[props.id]
-    const matched = state.cards.completed.includes(props.nr)
-    const Icon = getSvg(props.nr)
+    const {active} = state.cards.hand[id]
+    const matched = state.cards.completed.includes(nr)
+    const Icon = getSvg(nr)
 
     const onClickHandler = () => {
         if(state.activeCards <= 1 && !active){
             if(!active){
-                setActive(props.id)
+                setActive(id)
                 incrementActiveCards()
                 if(state.activeCards === 1){
                     checkMatch()
@@ -25,7 +25,7 @@ export default (props) => {
     
 
     return (
-        <Card onClick={onClickHandler} id={props.id}>
+        <Card onClick={onClickHandler} id={id}>
             <CardFront active={active}>
                 <h1>Flip</h1>
             </CardFront>
